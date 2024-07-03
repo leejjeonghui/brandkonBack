@@ -1,9 +1,6 @@
 package practice.brandkon.product;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,10 @@ public class ProductRestController {
     @GetMapping("/products/{id}")
     public ProductDetailResponse findById(@PathVariable Long id) {
         return productService.findById(id);
+    }
+
+    @PatchMapping("product/{id}")
+    public void updateSales(@PathVariable Long id) throws Exception {
+         productService.updateSales(id);
     }
 }

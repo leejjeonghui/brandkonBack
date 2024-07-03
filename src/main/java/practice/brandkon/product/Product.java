@@ -53,4 +53,12 @@ public class Product {
     public Integer getExpiryDays() {
         return expiryDays;
     }
+
+    public Long getSales() {
+        return sales;
+    }
+
+    public void updateSales() {
+        this.sales += 1;
+    }
 }
