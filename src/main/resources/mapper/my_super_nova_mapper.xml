@@ -13,12 +13,14 @@
         FROM product
         JOIN brand
         ON product.brand_id = brand.id
+        join category_brand as cb
+        on cb.brand_id = product.brand_id
         <where>
             <if test="brandId != null">
                 and product.brand_id = #{brandId}
             </if>
             <if test="categoryId != null">
-                and brand.category_id = #{categoryId}
+                and cb.category_id = #{categoryId}
             </if>
         </where>
         <if test="sort == 'POPULAR'">

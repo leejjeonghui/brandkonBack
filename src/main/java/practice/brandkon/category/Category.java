@@ -2,6 +2,7 @@ package practice.brandkon.category;
 
 import jakarta.persistence.*;
 import practice.brandkon.brand.CategoryBrand;
+import java.util.*;
 
 @Entity
 public class Category {
@@ -14,8 +15,9 @@ public class Category {
 
     private String imageUrl;
 
-    @ManyToOne
-    CategoryBrand categoryBrand;
+    @OneToMany(mappedBy = "category")
+    private List<CategoryBrand> categoryBrand;
+
     public Long getId() {
         return id;
     }

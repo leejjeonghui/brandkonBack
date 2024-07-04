@@ -8,10 +8,8 @@ public class CategoryBrand {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToMany(mappedBy = "categoryBrand")
-    Category category;
-
-    @OneToMany
-    Brand brand;
+    @ManyToOne
+    private Category category;
+    @ManyToOne
+    private Brand brand;
 }

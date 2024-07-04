@@ -1,10 +1,8 @@
 package practice.brandkon.brand;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.*;
 
 @Entity
 public class Brand {
@@ -17,8 +15,8 @@ public class Brand {
 
     private String imageUrl;
 
-    @ManyToOne
-    private CategoryBrand categoryBrand;
+    @OneToMany(mappedBy = "brand")
+    private List<CategoryBrand> categoryBrand;
 
 //    @ManyToOne
 //    private Category category;
@@ -38,7 +36,7 @@ public class Brand {
 //    }
 
 
-    public CategoryBrand getCategoryBrand() {
+    public List<CategoryBrand> getCategoryBrand() {
         return categoryBrand;
     }
     public String getImageUrl() {
